@@ -16,16 +16,17 @@ changeColor.addEventListener("click", async () => {
 });
 
 
+function addStyleInHtml () {
+    document.head.insertAdjacentHTML("beforeend", `<style></style>`)
+}
 
 // The body of this function will be executed as a content script inside the
 // current page
 function setPageBackgroundColor() {
     chrome.storage.sync.get("color", ({ color }) => {
         var x = document.getElementsByClassName("fc-agenda-days fc-border-separate")
+        x[0].style.setKeyframes()
+
     });
-
-
-//TODO Create style in head
-
 
 }
