@@ -1,0 +1,42 @@
+.rainbow-bg{
+    animation: rainbow-bg 10s linear;
+    animation-iteration-count: infinite;
+}
+@keyframes rainbow-bg{
+    100%,0%{
+        background-color: rgba(255, 0, 0, 0.30);
+    }
+    8%{
+        background-color: rgb(255,127,0, 0.30);
+    }
+    16%{
+        background-color: rgb(255,255,0, 0.30);
+    }
+    25%{
+        background-color: rgb(127,255,0, 0.30);
+    }
+    33%{
+        background-color: rgb(0,255,0, 0.30);
+    }
+    41%{
+        background-color: rgb(0,255,127, 0.30);
+    }
+    50%{
+        background-color: rgb(0,255,255, 0.30);
+    }
+    58%{
+        background-color: rgb(0,127,255, 0.30);
+    }
+    66%{
+        background-color: rgb(0,0,255, 0.30);
+    }
+    75%{
+        background-color: rgb(127,0,255, 0.30);
+    }
+    83%{
+        background-color: rgb(255,0,255, 0.30);
+    }
+    91%{
+        background-color: rgb(255,0,127, 0.30);
+    }
+}
