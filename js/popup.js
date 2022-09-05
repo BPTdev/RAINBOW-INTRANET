@@ -12,13 +12,13 @@ function setPageBackgroundColor() {
 }
 
 function doProcess (){
-    element = document.getElementsByClassName("content-with-sidemenu content-without-sidebar")[0];
+    elements = document.getElementsByClassName("content-with-sidemenu content-without-sidebar")[0];
 
-    element.style.animation = "10s linear rainbow-bg";
+   /* element.style.animation = "10s linear rainbow-bg";
     element.style.animationIterationCount = "infinite";
-    //element.style.backgroundColor = "red";
     document.body.appendChild(element);
-
+*/
+    element.classList.add('rainbow-bg');
 
 
     var head = document.head;
