@@ -12,14 +12,7 @@ function setPageBackgroundColor() {
 }
 
 function doProcess (){
-    elements = document.getElementsByClassName("content-with-sidemenu content-without-sidebar")[0];
-
-   /* element.style.animation = "10s linear rainbow-bg";
-    element.style.animationIterationCount = "infinite";
-    document.body.appendChild(element);
-*/
-    element.classList.add('rainbow-bg');
-
+    elements = document.getElementsByClassName("content-with-sidemenu content-without-sidebar");
 
     var head = document.head;
     var link = document.createElement("style");
@@ -68,8 +61,16 @@ function doProcess (){
         "}";
 
     head.appendChild(link);
-}
+    Array.from(elements).forEach(element => {
+        console.log(element)
+        element.classList.add('rainbow-bg');
 
+    });
+
+}
+function funforEach () {
+
+}
 // When the button is clicked, inject setPageBackgroundColor into current page
 changeColor.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
