@@ -1,23 +1,8 @@
 // Initialize button with user's preferred color
 let changeColor = document.getElementById("changeColor");
-function addCss(fileName) {
-
-
-}
-// The body of this function will be executed as a content script inside the
-// current page
-function setPageBackgroundColor() {
-
-
-}
 
 function doProcess (){
-    elements = document.getElementsByClassName("content-with-sidemenu content-without-sidebar");
-
-    var head = document.head;
-    var link = document.createElement("style");
-
-    link.textContent = ".rainbow-bg{\n" +
+    style = ".rainbow-bg{\n" +
         "    animation: rainbow-bg 10s linear;\n" +
         "    animation-iteration-count: infinite;\n" +
         "}\n" +
@@ -59,6 +44,12 @@ function doProcess (){
         "        background-color: rgb(255,0,127, 0.30);\n" +
         "    }\n" +
         "}";
+    elements = document.getElementsByClassName("fc-event-bg");
+
+    var head = document.head;
+    var link = document.createElement("style");
+
+    link.textContent = style;
 
     head.appendChild(link);
     Array.from(elements).forEach(element => {
@@ -67,10 +58,15 @@ function doProcess (){
 
     });
 
-}
-function funforEach () {
+    elements2 = document.getElementsByClassName("fc-event-head");
 
+    Array.from(elements2).forEach(element2 => {
+        console.log(element2)
+        element2.classList.add('rainbow-bg');
+
+    });
 }
+
 // When the button is clicked, inject setPageBackgroundColor into current page
 changeColor.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
