@@ -18,15 +18,54 @@ function doProcess (){
     element.style.animationIterationCount = "infinite";
     //element.style.backgroundColor = "red";
     document.body.appendChild(element);
-   
+
 
 
     var head = document.head;
-    var link = document.createElement("link");
+    var link = document.createElement("style");
 
-    link.type = "text/css";
-    link.rel = "stylesheet";
-    link.href = "https://raw.githubusercontent.com/BPTdev/RAINBOW-INTRANET/main/css/rainbow-smoothed.css";
+    link.textContent = ".rainbow-bg{\n" +
+        "    animation: rainbow-bg 10s linear;\n" +
+        "    animation-iteration-count: infinite;\n" +
+        "}\n" +
+        "@keyframes rainbow-bg{\n" +
+        "    100%,0%{\n" +
+        "        background-color: rgba(255, 0, 0, 0.30);\n" +
+        "    }\n" +
+        "    8%{\n" +
+        "        background-color: rgb(255,127,0, 0.30);\n" +
+        "    }\n" +
+        "    16%{\n" +
+        "        background-color: rgb(255,255,0, 0.30);\n" +
+        "    }\n" +
+        "    25%{\n" +
+        "        background-color: rgb(127,255,0, 0.30);\n" +
+        "    }\n" +
+        "    33%{\n" +
+        "        background-color: rgb(0,255,0, 0.30);\n" +
+        "    }\n" +
+        "    41%{\n" +
+        "        background-color: rgb(0,255,127, 0.30);\n" +
+        "    }\n" +
+        "    50%{\n" +
+        "        background-color: rgb(0,255,255, 0.30);\n" +
+        "    }\n" +
+        "    58%{\n" +
+        "        background-color: rgb(0,127,255, 0.30);\n" +
+        "    }\n" +
+        "    66%{\n" +
+        "        background-color: rgb(0,0,255, 0.30);\n" +
+        "    }\n" +
+        "    75%{\n" +
+        "        background-color: rgb(127,0,255, 0.30);\n" +
+        "    }\n" +
+        "    83%{\n" +
+        "        background-color: rgb(255,0,255, 0.30);\n" +
+        "    }\n" +
+        "    91%{\n" +
+        "        background-color: rgb(255,0,127, 0.30);\n" +
+        "    }\n" +
+        "}";
 
     head.appendChild(link);
 }

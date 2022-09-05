@@ -8,6 +8,7 @@
   },
   "options_page": "/html/options.html",
   "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://pastebin.com/"],
   "action": {
     "default_popup": "/html/popup.html"
   },
