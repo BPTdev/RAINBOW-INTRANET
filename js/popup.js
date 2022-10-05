@@ -2,6 +2,7 @@
 let changeColor = document.getElementById("changeColor");
 
 function doProcess (){
+    alert('fasfas')
     style = ".rainbow-bg{\n" +
         "    animation: rainbow-bg 10s linear;\n" +
         "    animation-iteration-count: infinite;\n" +
