@@ -5,7 +5,8 @@ button {
     margin: 10px;
     border: none;
     border-radius: 2px;
-
+    animation: grey-bg 10s linear;
+    animation-iteration-count: infinite;
 }
 body {
     background: rgb(255,0,0);
@@ -18,6 +19,10 @@ button:hover {
     animation-iteration-count: infinite;
 }
 
+button:active {
+    animation: rainbow-bg 1s linear;
+    animation-iteration-count: infinite;
+}
 @keyframes rainbow-bg{
     100%,0%{
         background-color: rgb(255,0,0);
@@ -54,5 +59,23 @@ button:hover {
     }
     91%{
         background-color: rgb(255,0,127);
+    }
+}
+@keyframes grey-bg{
+    100%,0%{
+        background-color: rgb(0, 0, 0);
+        color: rgb(255,255,255);
+    }
+    25%{
+        background-color: rgb(153, 153, 153);
+        color: rgb(200, 200, 200);
+    }
+    50%{
+        background-color: rgb(200, 200, 200);
+        color: rgb(153, 153, 153);
+    }
+    75%{
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
     }
 }

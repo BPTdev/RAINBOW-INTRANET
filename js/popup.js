@@ -2,7 +2,7 @@
 let changeColor = document.getElementById("changeColor");
 // Initialize variables
 let classes = ["fc-event-bg", "fc-event-head"]
-let url = "https://intranet.cpnv.ch/etudiants/benoit_pierrehumbert/agenda"
+let url = ""
 let timeToWait = 4000
 function doProcess (){
     style = ".rainbow-bg{\n" +
@@ -82,8 +82,9 @@ function doProcess (){
 
 }
 function waitForPageLoad() {
-    alert('fasfas')
-    window.open(url, "_blank");
+    //chrome.tabs.create({ url: "https://intranet.cpnv.ch/etudiants/benoit_pierrehumbert/agenda" });
+    chrome.tabs.create({ url: "brave://newtab" });
+    alert('ff')
     setTimeout(doProcess,4000);
 }
 // When the button is clicked, inject setPageBackgroundColor into current page
