@@ -9,6 +9,14 @@
   "options_page": "/html/options.html",
   "permissions": ["storage", "activeTab", "scripting","tabs"],
   "host_permissions": ["https://pastebin.com/"],
+  "content_scripts": [
+    {
+      "matches": ["https://intranet.cpnv.ch/etudiants/*/agenda"],
+      "js": ["js/setColors.js"],
+      "run_at": "document_end"
+    }
+  ],
+
   "action": {
     "default_popup": "/html/popup.html"
   }
