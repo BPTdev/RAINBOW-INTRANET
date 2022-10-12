@@ -5,7 +5,7 @@
   "manifest_version": 3,
   "background": {
     "service_worker": "/js/background.js"
-  },
+    },
   "options_page": "/html/options.html",
   "permissions": ["storage", "activeTab", "scripting","tabs"],
   "host_permissions": ["https://pastebin.com/"],

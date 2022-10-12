@@ -2,9 +2,10 @@
 let changeColor = document.getElementById("changeColor");
 // Initialize variables
 let classes = ["fc-event-bg", "fc-event-head"]
-let url = ""
+let url= "https://intranet.cpnv.ch/etudiants/benoit_pierrehumbert/agenda";
 let timeToWait = 4000
 function doProcess (){
+
     style = ".rainbow-bg{\n" +
         "    animation: rainbow-bg 10s linear;\n" +
         "    animation-iteration-count: infinite;\n" +
@@ -50,6 +51,7 @@ function doProcess (){
     var head = document.head;
     var link = document.createElement("style");
 
+
     link.textContent = style;
     head.appendChild(link);
 
@@ -82,17 +84,20 @@ function doProcess (){
 
 }
 function waitForPageLoad() {
-    //chrome.tabs.create({ url: "https://intranet.cpnv.ch/etudiants/benoit_pierrehumbert/agenda" });
-    chrome.tabs.create({ url: "brave://newtab" });
-    alert('ff')
-    setTimeout(doProcess,4000);
+alert("ddaf");
+
 }
+
 // When the button is clicked, inject setPageBackgroundColor into current page
 changeColor.addEventListener("click", async () => {
     let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-    chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        func: waitForPageLoad,
-    });
+    newpage = chrome.tabs.create({ url: url });
+    newpage.addEventListener("DOMContentLoaded", async () => {alert("ddaf");})
+    /*
+      chrome.scripting.executeScript({
+             target: { tabId: tab.id },
+             func: waitForPageLoad,
+         });
+    */
 });
