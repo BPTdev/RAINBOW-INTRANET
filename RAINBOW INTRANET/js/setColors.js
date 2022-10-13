@@ -60,20 +60,24 @@ function doIt() {
     link.textContent = style;
     head.appendChild(link);
 
+//put the number of element in classes array in the variable totalclasses
+totalclasses = classes.length;
 
-  
 
-
-    elements = document.getElementsByClassName(classes[0]);
+for (i=0;i>=totalclasses;i++)
+{
+    elements = document.getElementsByClassName(classes[i]);
     makeitrainbow(elements)
-    function makeitrainbow(elements) {
-        Array.from(elements).forEach(element => {
-            console.log(element)
-            element.classList.add('rainbow-bg');
+}
 
-        });
-    }
-    elements = document.getElementsByClassName(classes[1]);
-    makeitrainbow(elements);
+
+function makeitrainbow(elements) {
+    Array.from(elements).forEach(element => {
+        console.log(element)
+        element.classList.add('rainbow-bg');
+
+    });
+}
+
 
 }

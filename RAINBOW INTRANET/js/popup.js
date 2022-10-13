@@ -1,6 +1,6 @@
 
 let url= "https://intranet.cpnv.ch/etudiants/benoit_pierrehumbert/agenda";
-let timeToWait = 4000
+
 
 
 
