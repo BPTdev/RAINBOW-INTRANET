@@ -61,27 +61,19 @@ function doIt() {
     head.appendChild(link);
 
 
-    alert("OUAIS 1")
+  
 
-    //cunt the number of lines in the array to determine what do with the content or the classes array
-    if (classes.count === 1) {
-        elements = document.getElementsByClassName("fc-event-bg");
-    } else {
-        //for each element in the array classes, get his element by class name
-        Array.from(classes).forEach(oneClass => {
-            console.log(oneClass)
-            elements.push(document.getElementsByClassName(oneClass))
-            debug++;
+
+    elements = document.getElementsByClassName(classes[0]);
+    makeitrainbow(elements)
+    function makeitrainbow(elements) {
+        Array.from(elements).forEach(element => {
+            console.log(element)
+            element.classList.add('rainbow-bg');
+
         });
-
     }
+    elements = document.getElementsByClassName(classes[1]);
+    makeitrainbow(elements);
 
-//for each element in the array elements, put the rainbow-bg class name in his dom element
-    Array.from(elements).forEach(element => {
-        console.log(element)
-        element.classList.add('rainbow-bg');
-
-    });
-
-    alert("OUAIS 3")
 }
