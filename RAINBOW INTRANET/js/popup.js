@@ -10,5 +10,4 @@ changeColor.addEventListener("click", async () => {
 
     newpage = chrome.tabs.create({ url: url });
 
-    newpage.addEventListener("DOMContentLoaded", async () => {alert("ddaf");})
 });
