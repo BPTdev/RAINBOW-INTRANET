@@ -1,8 +1,16 @@
-// Initialize button with user's preferred color
-let changeColor = document.getElementById("changeColor");
+setTimeout(doIt, 1000);
 
-function doProcess (){
-    alert('fasfas')
+function doIt() {
+    // Initialize button with user's preferred color
+    let changeColor = document.getElementById("changeColor");
+    // Initialize variables
+    let classes = ["fc-event-bg", "fc-event-head"]
+    // Initialize elements array
+    let elements = [];
+    //Initialize debug
+    let debug;
+
+
     style = ".rainbow-bg{\n" +
         "    animation: rainbow-bg 10s linear;\n" +
         "    animation-iteration-count: infinite;\n" +
@@ -45,35 +53,31 @@ function doProcess (){
         "        background-color: rgb(255,0,127, 0.30);\n" +
         "    }\n" +
         "}";
-    elements = document.getElementsByClassName("fc-event-bg");
-
     var head = document.head;
     var link = document.createElement("style");
 
-    link.textContent = style;
 
+    link.textContent = style;
     head.appendChild(link);
+
+//put the number of element in classes array in the variable totalclasses
+totalclasses = classes.length;
+
+
+for (i=0;i>=totalclasses;i++)
+{
+    elements = document.getElementsByClassName(classes[i]);
+    makeitrainbow(elements)
+}
+
+
+function makeitrainbow(elements) {
     Array.from(elements).forEach(element => {
         console.log(element)
         element.classList.add('rainbow-bg');
 
     });
-
-    elements2 = document.getElementsByClassName("fc-event-head");
-
-    Array.from(elements2).forEach(element2 => {
-        console.log(element2)
-        element2.classList.add('rainbow-bg');
-
-    });
 }
 
-// When the button is clicked, inject setPageBackgroundColor into current page
-changeColor.addEventListener("click", async () => {
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-    chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        func: doProcess,
-    });
-});
+}

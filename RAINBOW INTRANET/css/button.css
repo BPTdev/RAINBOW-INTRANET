@@ -1,0 +1,81 @@
+button {
+    height: 30px;
+    width: 130px;
+    outline: none;
+    margin: 10px;
+    border: none;
+    border-radius: 2px;
+    animation: grey-bg 10s linear;
+    animation-iteration-count: infinite;
+}
+body {
+   background: rgb(255,0,0);
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(239,255,0,1) 16%, rgba(0,255,14,1) 33%, rgba(0,255,245,1) 49%, rgba(0,16,255,1) 67%, rgba(255,0,247,1) 84%, rgba(255,0,7,1) 100%);
+
+}
+
+button:hover {
+    animation: rainbow-bg 10s linear;
+    animation-iteration-count: infinite;
+}
+
+button:active {
+    animation: rainbow-bg 1s linear;
+    animation-iteration-count: infinite;
+}
+@keyframes rainbow-bg{
+    100%,0%{
+        background-color: rgb(255,0,0);
+    }
+    8%{
+        background-color: rgb(255,127,0);
+    }
+    16%{
+        background-color: rgb(255,255,0);
+    }
+    25%{
+        background-color: rgb(127,255,0);
+    }
+    33%{
+        background-color: rgb(0,255,0);
+    }
+    41%{
+        background-color: rgb(0,255,127);
+    }
+    50%{
+        background-color: rgb(0,255,255);
+    }
+    58%{
+        background-color: rgb(0,127,255);
+    }
+    66%{
+        background-color: rgb(0,0,255);
+    }
+    75%{
+        background-color: rgb(127,0,255);
+    }
+    83%{
+        background-color: rgb(255,0,255);
+    }
+    91%{
+        background-color: rgb(255,0,127);
+    }
+}
+@keyframes grey-bg {
+    100%,0%{
+        background-color: rgb(0, 0, 0);
+        color: rgb(255,255,255);
+    }
+    25%{
+        background-color: rgb(153, 153, 153);
+        color: rgb(200, 200, 200);
+    }
+    50%{
+        background-color: rgb(200, 200, 200);
+        color: rgb(153, 153, 153);
+    }
+    75%{
+        background-color: rgb(255, 255, 255);
+        color: rgb(0, 0, 0);
+    }
+}
