@@ -6,11 +6,18 @@
     <title>Options</title>
 </head>
 <body>
-<div id="buttonDiv">
-</div>
+
 <div>
   <p>Choose a different background color!</p>
 </div>
+<form action="">
+    <label>
+        Please add a comma "," between each class and compact them with "".<br>
+        Example: "class1","class2","class3"<br>
+        <input type="text" id="class-input">
+    </label>
+    <button type="submit" onclick="saveClasses()">Save</button>
+</form>
 <script src="../js/options.js"></script>
 </body>
 </html>

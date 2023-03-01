@@ -1,10 +1,16 @@
-setTimeout(doIt, 1000);
-
+    setTimeout(doIt, 1000);
+//when a click is detected on a "fc-button-inner" element, the function doIt is called
+    document.addEventListener('click', function(e) {
+        if (e.target.className === 'fc-button') {
+            setTimeout(doIt, 1000);
+        }
+    }, false);
 function doIt() {
     // Initialize button with user's preferred color
     let changeColor = document.getElementById("changeColor");
     // Initialize variables
-    let classes = ["fc-event-bg", "fc-event-head"]
+    let classes =  JSON.parse(localStorage.getItem("RB.classes"));
+    //let classes = ["fc-event-bg", "fc-event-head"]
     // Initialize elements array
     let elements = [];
     //Initialize debug
@@ -65,10 +71,11 @@ function doIt() {
 
 
 
-        elements = document.getElementsByClassName(classes[0]);
+
+    classes.forEach(className => {
+        const elements = document.getElementsByClassName(className);
         makeitrainbow(elements);
-        elements = document.getElementsByClassName(classes[1]);
-        makeitrainbow(elements);
+    });
 
 
 
