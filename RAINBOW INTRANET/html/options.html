@@ -2,15 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/button.css">
     <title>Options</title>
 </head>
 <body>
-<div id="buttonDiv">
-</div>
+    <div id="buttonDiv"></div>
+    <div>
+        <p>Choose a different background color!</p>
+    </div>
+
+    <!-- Ajout pour les classes rainbow -->
+    <div>
+        <input type="text" id="classInput" placeholder="Enter class name">
+        <button id="addClassButton">Add Class</button>
+    </div>
+    <div>
+        <table id="classesTable">
+            <thead>
+                <tr>
+                    <th>Class Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Les classes seront ajoutées ici -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Ajout de champs pour l'URL et le titre -->
 <div>
-  <p>Choose a different background color!</p>
+    <input type="text" id="urlInput" placeholder="Enter URL">
+    <input type="text" id="titleInput" placeholder="Enter Title">
+    <button id="saveButton">Save</button>
 </div>
-<script src="../js/options.js"></script>
+
+
+    <script src="../js/options.js"></script>
 </body>
 </html>

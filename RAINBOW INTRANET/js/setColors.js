@@ -61,24 +61,32 @@ function doIt() {
     head.appendChild(link);
 
 //put the number of element in classes array in the variable totalclasses
-    totalclasses = classes.length;
-
-
-
+    /*totalclasses = classes.length;
         elements = document.getElementsByClassName(classes[0]);
         makeitrainbow(elements);
         elements = document.getElementsByClassName(classes[1]);
-        makeitrainbow(elements);
+        makeitrainbow(elements);*/
+        
 
 
 
     function makeitrainbow(elements) {
         Array.from(elements).forEach(element => {
-            console.log(element)
             element.classList.add('rainbow-bg');
 
         });
     }
+    // Code pour récupérer les classes et appliquer l'animation
+    chrome.storage.sync.get('rainbowClasses', function(data) {
+        let rainbowClasses = data.rainbowClasses;
+        console.log(rainbowClasses);
+        if (rainbowClasses) {
+            rainbowClasses.forEach(className => {
+                let elements = document.getElementsByClassName(className);
+                makeitrainbow(elements);
+            });
+        }
+    });
 
 
 }

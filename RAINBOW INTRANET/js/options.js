@@ -1,46 +1,60 @@
-let page = document.getElementById("buttonDiv");
-let selectedClassName = "current";
-const presetButtonColors = ["#3aa757", "#e8453c", "#f9bb2d", "#4688f1"];
-
-// Reacts to a button click by marking the selected button and saving
-// the selection
-function handleButtonClick(event) {
-    // Remove styling from the previously selected color
-    let current = event.target.parentElement.querySelector(
-        `.${selectedClassName}`
-    );
-    if (current && current !== event.target) {
-        current.classList.remove(selectedClassName);
+document.getElementById('addClassButton').addEventListener('click', function() {
+    let className = document.getElementById('classInput').value;
+    if (className) {
+        addClassToTable(className);
+        saveClasses();
     }
+});
 
-    // Mark the button as selected
-    let color = event.target.dataset.color;
-    event.target.classList.add(selectedClassName);
-    chrome.storage.sync.set({ color });
+function addClassToTable(className) {
+    let table = document.getElementById('classesTable').getElementsByTagName('tbody')[0];
+    let newRow = table.insertRow();
+    let cell1 = newRow.insertCell(0);
+    let cell2 = newRow.insertCell(1);
+    cell1.textContent = className;
+    let deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.onclick = function() {
+        newRow.remove();
+        saveClasses();
+    };
+    cell2.appendChild(deleteButton);
 }
 
-// Add a button to the page for each supplied color
-function constructOptions(buttonColors) {
-    chrome.storage.sync.get("color", (data) => {
-        let currentColor = data.color;
-        // For each color we were provided…
-        for (let buttonColor of buttonColors) {
-            // …create a button with that color…
-            let button = document.createElement("button");
-            button.dataset.color = buttonColor;
-            button.style.backgroundColor = buttonColor;
+function saveClasses() {
+    let classes = [];
+    let table = document.getElementById('classesTable').getElementsByTagName('tbody')[0];
+    for (let i = 0; i < table.rows.length; i++) {
+        classes.push(table.rows[i].cells[0].textContent);
+    }
+    chrome.storage.sync.set({ 'rainbowClasses': classes });
+}
 
-            // …mark the currently selected color…
-            if (buttonColor === currentColor) {
-                button.classList.add(selectedClassName);
-            }
-
-            // …and register a listener for when that button is clicked
-            button.addEventListener("click", handleButtonClick);
-            page.appendChild(button);
+// Charger les classes enregistrées
+window.onload = function() {
+    chrome.storage.sync.get('rainbowClasses', function(data) {
+        if (data.rainbowClasses) {
+            data.rainbowClasses.forEach(addClassToTable);
         }
     });
-}
+    chrome.storage.sync.get(['url', 'title'], function(data) {
+        if (data.url) {
+            document.getElementById('urlInput').value = data.url;
+        }
+        if (data.title) {
+            document.getElementById('titleInput').value = data.title;
+        }
+    });
+};
 
-// Initialize the page by constructing the color options
-constructOptions(presetButtonColors);
+document.getElementById('saveButton').addEventListener('click', function() {
+    let url = document.getElementById('urlInput').value;
+    let title = document.getElementById('titleInput').value;
+    
+    chrome.storage.sync.set({ url, title }, function() {
+        console.log('URL and Title saved');
+    });
+});
+
+
+
