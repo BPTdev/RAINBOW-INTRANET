@@ -11,7 +11,7 @@
   "host_permissions": ["https://pastebin.com/"],
   "content_scripts": [
     {
-      "matches": ["https://intranet.cpnv.ch/etudiants/*/agenda"],
+      "matches": ["*://*/*"],
       "js": ["js/setColors.js"],
       "run_at": "document_end"
     }
