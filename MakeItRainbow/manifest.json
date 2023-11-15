@@ -1,6 +1,6 @@
 {
-  "name": "Rainbow Classes",
-  "description": "Make it rainbow !",
+  "name": "Make it rainbow !",
+  "description": "A simple extension to make some css-classes rainbow on your webpages !",
   "version": "1.0",
   "manifest_version": 3,
   "background": {
@@ -8,7 +8,6 @@
     },
   "options_page": "/html/options.html",
   "permissions": ["storage", "activeTab", "scripting","tabs"],
-  "host_permissions": ["https://pastebin.com/"],
   "content_scripts": [
     {
       "matches": ["*://*/*"],
@@ -16,7 +15,12 @@
       "run_at": "document_end"
     }
   ],
-
+  "icons": {
+    "16": "icons/icon_16x16.png",
+    "32": "icons/icon_32x32.png",
+    "48": "icons/icon_48x48.png",
+    "128": "icons/icon_128x128.png"
+  },
   "action": {
     "default_popup": "/html/popup.html"
   }

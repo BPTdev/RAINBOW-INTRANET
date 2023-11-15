@@ -64,7 +64,7 @@ window.onload = function() {
         }
     });
 
-    chrome.storage.sync.get(['url', 'title', 'delay'], function(data) {
+    chrome.storage.sync.get(['url', 'title', 'delay','opacity'], function(data) {
         if (data.url) {
             document.getElementById('urlInput').value = data.url;
             document.getElementById('urlDisplay').textContent = data.url;
@@ -83,6 +83,12 @@ window.onload = function() {
             document.getElementById('delayInput').value = data.delay;
             document.getElementById('currentDelay').textContent = data.delay;
         }
+
+        if (data.opacity) {
+            document.getElementById('currentOpacity').textContent = data.opacity;
+        } else {
+            document.getElementById('currentOpacity').textContent = 'No opacity stored';
+        }
     });
 };
 
@@ -100,5 +106,12 @@ document.getElementById('saveButton').addEventListener('click', function() {
     
     chrome.storage.sync.set({ url, title }, function() {
         console.log('URL and Title saved');
+    });
+});
+
+document.getElementById('saveOpacityButton').addEventListener('click', function() {
+    let opacity = document.getElementById('opacityInput').value;
+    chrome.storage.sync.set({ 'opacity': opacity }, function() {
+        console.log('Opacity saved:', opacity);
     });
 });
