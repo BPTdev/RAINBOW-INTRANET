@@ -13,14 +13,18 @@
 
     <!-- Ajout pour les classes rainbow -->
     <div>
+        <label for="classInput">Class: </label>
         <input type="text" id="classInput" placeholder="Enter class name">
-        <button id="addClassButton">Add Class</button>
+        <label for="classTitleInput">Label for the class: </label>
+        <input type="text" id="classTitleInput" placeholder="Enter title name">
+        <button id="addClassButton">Save</button>
     </div>
     <div>
         <table id="classesTable">
             <thead>
                 <tr>
                     <th>Class Name</th>
+                    <th>Title</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -30,15 +34,23 @@
         </table>
     </div>
     <!-- Ajout de champs pour l'URL et le titre -->
+    <hr>
 <div>
+    <label for="urlInput">Page's URL when extension button clicked:</label>
     <input type="text" id="urlInput" placeholder="Enter URL">
-    <input type="text" id="titleInput" placeholder="Enter Title">
     <button id="saveButton">Save</button>
 </div>
 <!-- Zone pour afficher l'URL stockée -->
 <div>
     <p id="storedUrl">URL Stored: <span id="urlDisplay"></span></p>
-    <p id="storedUrl">Title Stored: <span id="titleDisplay"></span></p>
+</div>
+<hr>
+<!-- Champ pour modifier le délai -->
+<div>
+    <label for="delayInput">Delay before colors: </label>
+    <input type="number" id="delayInput" placeholder="Enter delay in milliseconds">
+    <button id="saveDelayButton">Save Delay</button>
+    <p>Current Delay: <span id="currentDelay"></span> ms</p>
 </div>
 
 

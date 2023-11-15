@@ -1,16 +1,9 @@
-setTimeout(doIt, 1000);
+chrome.storage.sync.get('delay', function(data) {
+    let delay = data.delay ? parseInt(data.delay) : 1000; // Utiliser 1000 ms par défaut
+    setTimeout(doIt, delay);
+});
 
 function doIt() {
-    // Initialize button with user's preferred color
-    let changeColor = document.getElementById("changeColor");
-    // Initialize variables
-    let classes = ["fc-event-bg", "fc-event-head"]
-    // Initialize elements array
-    let elements = [];
-    //Initialize debug
-    let debug;
-
-
     style = ".rainbow-bg{\n" +
         "    animation: rainbow-bg 10s linear;\n" +
         "    animation-iteration-count: infinite;\n" +
@@ -60,33 +53,27 @@ function doIt() {
     link.textContent = style;
     head.appendChild(link);
 
-//put the number of element in classes array in the variable totalclasses
-    /*totalclasses = classes.length;
-        elements = document.getElementsByClassName(classes[0]);
-        makeitrainbow(elements);
-        elements = document.getElementsByClassName(classes[1]);
-        makeitrainbow(elements);*/
-        
-
-
-
-    function makeitrainbow(elements) {
+    function makeitrainbow(elements, title) {
         Array.from(elements).forEach(element => {
             element.classList.add('rainbow-bg');
-
+            if (title) {
+                element.setAttribute('title', title); // Ajoute un attribut title à l'élément
+            }
         });
     }
+    
     // Code pour récupérer les classes et appliquer l'animation
-    chrome.storage.sync.get('rainbowClasses', function(data) {
-        let rainbowClasses = data.rainbowClasses;
-        console.log(rainbowClasses);
-        if (rainbowClasses) {
-            rainbowClasses.forEach(className => {
-                let elements = document.getElementsByClassName(className);
-                makeitrainbow(elements);
-            });
-        }
-    });
+chrome.storage.sync.get('rainbowClasses', function(data) {
+    let rainbowClasses = data.rainbowClasses;
+    console.log(rainbowClasses);
+    if (rainbowClasses) {
+        rainbowClasses.forEach(function(item) {
+            let elements = document.getElementsByClassName(item.className);
+            makeitrainbow(elements, item.classTitle);
+        });
+    }
+});
+
 
 
 }
